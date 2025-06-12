@@ -37,7 +37,7 @@ then
   npm version $VERSION --allow-same-version --git-tag-version=false
 
   # 手动创建tag
-  git tag -a "v$VERSION" -m "[release]: $VERSION"
+  git tag -a "v$VERSION" -m "[release111]: $VERSION"
   
   # 推送代码和tag
   git push origin main
