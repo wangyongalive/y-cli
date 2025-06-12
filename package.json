@@ -1,6 +1,6 @@
 {
   "name": "y-generator-cli",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "自定义脚手架 命令`-cli`可以拉取自定义的一些项目模板",
   "type": "module",
   "main": "index.js",
