@@ -1,6 +1,6 @@
 {
   "name": "y-generator-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "自定义脚手架 命令`-cli`可以拉取自定义的一些项目模板",
   "type": "module",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/y-generator-cli/y-generator-cli.git"
+    "url": "https://github.com/wangyongalive/y-cli.git"
   },
   "dependencies": {
     "chalk": "^5.3.0",
