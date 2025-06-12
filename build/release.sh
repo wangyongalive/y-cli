@@ -15,8 +15,6 @@ read VERSION
 # -n1: 只读取一个字符作为输入
 read -p "版本号：$VERSION ? (y/n)" -n1
 
-# echo "\r\n-----$VERSION---$REPLY\r\n"
-
 echo
 
 if [[ $REPLY =~ ^[Yy]$ ]];
@@ -29,12 +27,26 @@ then
     git commit -m "[commit]: $VERSION"
   else
     echo "没有未提交的文件"
-    exit 1
+    # 修改退出状态为0，因为没有未提交文件不是错误状态
+    exit 0
   fi
-  npm version $VERSION --message "[release]: $VERSION"
+
+  # 更新版本号并创建tag
+  # --allow-same-version 允许更新到相同版本号
+  # --git-tag-version 创建git tag
+  npm version $VERSION --allow-same-version --git-tag-version=false
+
+  # 手动创建tag
+  git tag -a "v$VERSION" -m "[release]: $VERSION"
+  
+  # 推送代码和tag
   git push origin main
-  git push origin refs/tags/$VERSION
+  git push origin "v$VERSION"
+  
+  # 发布到npm
   npm publish
+
+  echo "发布完成"
 else
   echo "取消发布"
   exit 1
